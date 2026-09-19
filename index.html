@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ComProg Calculator for CEDT - U, S and S* grade calculator">
+  <title>ComProg Calculator | CEDT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <header class="header">
+    <div class="brand">
+      <img src="https://cedtintern.cp.eng.chula.ac.th/assets/images/layout/cedt_logo.png" alt="CEDT Logo">
+      <div>
+        <span class="eyebrow">CEDT · ComProg</span>
+        <h1>Calculator</h1>
+      </div>
+    </div>
+    <div class="scale-badge">100 points</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="pill">Computer Programming</span>
+      <h2>Know your score.<br><span>Plan your grade.</span></h2>
+      <p>Calculate the Final score you need, or check whether your current scores are U, S, or S*.</p>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="target" role="tab" aria-selected="true">
+        <span class="tab-number">01</span>
+        Final Target
+      </button>
+      <button class="tab" data-tab="grade" role="tab" aria-selected="false">
+        <span class="tab-number">02</span>
+        Grade Calculator
+      </button>
+    </div>
+
+    <section id="target" class="panel active-panel">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">FEATURE 01</span>
+          <h3>How much do I need in Final?</h3>
+        </div>
+        <p>Midterm is converted from /400 to /35 and Final from /400 to /55.</p>
+      </div>
+
+      <div class="form-grid">
+        <label class="field">
+          <span>Quiz / Collected Score <small>out of 10</small></span>
+          <input id="targetQuiz" type="number" min="0" max="10" step="0.01" value="10">
+        </label>
+
+        <label class="field">
+          <span>Midterm <small>out of 400</small></span>
+          <input id="targetMidterm" type="number" min="0" max="400" step="1" placeholder="e.g. 280">
+        </label>
+
+        <label class="field">
+          <span>Target Grade</span>
+          <select id="targetGrade">
+            <option value="60">S · ≥ 60</option>
+            <option value="80">S* · ≥ 80</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="calculateTarget" class="primary-btn">
+        Calculate Final Target
+        <span>→</span>
+      </button>
+
+      <div id="targetResult" class="result hidden"></div>
+
+      <div class="rules">
+        <div><b>U</b><span>&lt; 60</span></div>
+        <div class="selected"><b>S</b><span>≥ 60</span></div>
+        <div><b>S*</b><span>≥ 80</span></div>
+      </div>
+    </section>
+
+    <section id="grade" class="panel">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">FEATURE 02</span>
+          <h3>What grade will I get?</h3>
+        </div>
+        <p>Choose the score format you currently have.</p>
+      </div>
+
+      <div class="mode-switch">
+        <button class="mode active" data-mode="weighted">10 · 35 · 55</button>
+        <button class="mode" data-mode="raw">10 · 400 · 400</button>
+      </div>
+
+      <div class="form-grid">
+        <label class="field">
+          <span>Quiz / Collected Score <small>out of 10</small></span>
+          <input id="gradeQuiz" type="number" min="0" max="10" step="0.01" value="10">
+        </label>
+
+        <label class="field">
+          <span id="midLabel">Midterm <small>out of 35</small></span>
+          <input id="gradeMidterm" type="number" min="0" max="35" step="0.01" placeholder="e.g. 25">
+        </label>
+
+        <label class="field">
+          <span id="finalLabel">Final <small>out of 55</small></span>
+          <input id="gradeFinal" type="number" min="0" max="55" step="0.01" placeholder="e.g. 45">
+        </label>
+      </div>
+
+      <button id="calculateGrade" class="primary-btn">
+        Calculate Grade
+        <span>→</span>
+      </button>
+
+      <div id="gradeResult" class="result hidden"></div>
+
+      <div class="conversion">
+        <div><span>Midterm</span><strong>400 → 35</strong></div>
+        <div><span>Final</span><strong>400 → 55</strong></div>
+        <div><span>Total</span><strong>100 points</strong></div>
+      </div>
+    </section>
+
+    <footer>
+      <span>ComProg Calculator for CEDT</span>
+      <span>U &lt; 60 · S ≥ 60 · S* ≥ 80</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
